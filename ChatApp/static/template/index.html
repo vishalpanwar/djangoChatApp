@@ -1,0 +1,40 @@
+{% load staticfiles %}
+
+<html>
+
+<head>
+    <title>Chat Panel</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <h1>Welcome To Django Chat Application</h1>
+    {% if not user.is_authenticated %}
+        <br>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+        <button class = "btn btn-default" type="submit">Register</button>
+      </form>
+
+        <br><br>
+        <h3>Already Registered!</h3>
+        <a href = '/login/'><h4>Login</h4></a>
+    {% else %}
+        <br><br>
+        <h2>{{ user.username }}</h2>
+        <br><br>
+        <a href = '/logout/'><h4>Logout</h4></a>
+    {% endif %}
+</body>
+
+<script src="{% static 'js/chat.js' %}"></script>
+</html>
