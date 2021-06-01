@@ -70,7 +70,7 @@ six==1.4.1
 social-auth-app-django==1.2.0
 social-auth-core==1.4.0
 South==1.0.2
-urllib3==1.21.1
+urllib3==1.26.5
 virtualenv==15.1.0
 xattr==0.6.4
 zope.interface==4.1.1
